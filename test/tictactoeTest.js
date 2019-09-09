@@ -213,6 +213,7 @@ describe('tictactoe.js', () => {
       window.doTurn(squares[8]);
 
       expect(spy.calledOnce).to.be.true;
+      
     });
 
     it('invokes the updateState() function', () => {
@@ -225,7 +226,7 @@ describe('tictactoe.js', () => {
 
     it('invokes the setMessage() function with the argument "Tie game." when the game is tied', () => {
       sinon.useFakeXMLHttpRequest();
-
+      
       const spy = sandbox.spy(window, 'setMessage');
 
       populateBoard(['X', 'O', 'X', 'X', 'O', 'X', 'O', '', 'O']);
@@ -236,6 +237,7 @@ describe('tictactoe.js', () => {
       //  O |   | O 
 
       window.turn = 8;
+
       window.doTurn(squares[7]);
 
       expect(spy.firstCall.args[0]).to.equal('Tie game.');
@@ -273,7 +275,7 @@ describe('tictactoe.js', () => {
 
     it('attaches event listeners that invoke doTurn() when a square is clicked on', () => {
       var spy = sandbox.stub(window, 'doTurn');
-
+  
       squares[0].click();
 
       expect(spy.calledOnce).to.be.true;
